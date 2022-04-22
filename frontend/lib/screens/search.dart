@@ -17,8 +17,29 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ProfileForm(pgCont: pgCont),
-    );
+        body: Column(
+      children: [
+        //coordinates
+        Container(
+          child: const Text('coordinates'
+              //style: TextStyle(fontSize: 15),
+              ),
+        ),
+        //time scale selection
+        Container(
+          child: const Text('Time scale selection'),
+        ),
+        // button
+        Container(
+          child: const Text('button'),
+        ),
+        //image
+        Container(
+          child: const Text('Image'),
+        ),
+        ProfileForm(pgCont: pgCont), //page counter
+      ],
+    ));
   }
 }
 
