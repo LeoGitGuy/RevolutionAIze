@@ -40,14 +40,18 @@ class Search extends StatelessWidget {
           ),
           // button
           Container(
-            child: const Text(
-              'button',
-              style: TextStyle(fontSize: 15),
+            child: Column(children: [
+              const Text(
+                'here comes the button'
+              ),
+              ElevatedButton(
+              onPressed: () {}, 
+              child: const Text('run')
+              ),
+            ],
             ),
-            color: Colors.green.shade400,
-            padding: const EdgeInsets.all(15),
           ),
-          //image
+         //image
           Container(
             child: const Text(
               'image',
