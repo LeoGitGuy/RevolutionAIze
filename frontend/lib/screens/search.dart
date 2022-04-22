@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 import 'package:t4gopengov/GovData.dart'; //imports http protocol
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/location_handler.dart';
+import '../models/location.dart';
 
 //Classes
 class Search extends StatefulWidget {
@@ -25,6 +26,9 @@ class _SearchState extends State<Search> {
   final latitudeController = TextEditingController();
   final longitudeController = TextEditingController();
   LocationService _locationService = LocationService();
+  static const baseUrl = "http://test.de";
+  var loadPressed = false;
+
   Widget _coordinatesInput() {
     latitudeController.text = _locationService.myLocation.latitude;
     longitudeController.text = _locationService.myLocation.longitude;
@@ -59,6 +63,20 @@ class _SearchState extends State<Search> {
         ),
       ],
     );
+  }
+
+  var buttonPressed = false;
+  Widget imageViewer() {
+    if (loadPressed) {
+      return Image(
+          image: NetworkImage(baseUrl +
+              "?lat=" +
+              _locationService.myLocation.latitude +
+              "&lon=" +
+              _locationService.myLocation.longitude));
+    } else {
+      return Text("Press the button to see an image");
+    }
   }
 
   @override
@@ -100,7 +118,15 @@ class _SearchState extends State<Search> {
             child: Column(
               children: [
                 const Text('here comes the button'),
-                ElevatedButton(onPressed: () {}, child: const Text('run')),
+                ElevatedButton(
+                    onPressed: () {
+                      _locationService.myLocation = Location("test",
+                          latitudeController.text, longitudeController.text, 3);
+                      setState(() {
+                        buttonPressed = true;
+                      });
+                    },
+                    child: const Text('run')),
               ],
             ),
           ),
@@ -112,14 +138,7 @@ class _SearchState extends State<Search> {
             color: Colors.grey,
           ),
           //image
-          Container(
-            child: const Text(
-              'image',
-              style: TextStyle(fontSize: 15),
-            ),
-            color: Colors.green.shade600,
-            padding: const EdgeInsets.all(15),
-          ),
+          Container(child: imageViewer()),
           //ProfileForm(pgCont: pgCont), //page counter
         ],
       ),
