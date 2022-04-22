@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'RevolutionAIze',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primarySwatch: Colors.red,
         // Define the default brightness and colors.
         brightness: Brightness.dark,
         primaryColor: Colors.lightBlue[800],
@@ -101,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _pages = [
       Overview(
         pgCont: () => _pageController.animateToPage(
-          1,
+          2,
           duration: Duration(milliseconds: 300),
           curve: Curves.bounceInOut,
         ),
@@ -195,21 +196,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     duration: Duration(milliseconds: 300),
                     curve: Curves.linear);
               },
-              icon: Icon(Icons.account_circle, color: Colors.black)),
+              icon: Icon(Icons.apps_outlined, color: Colors.black)),
           IconButton(
               onPressed: () {
                 _pageController.animateToPage(1,
                     duration: Duration(milliseconds: 300),
                     curve: Curves.linear);
               },
-              icon: Icon(Icons.list, color: Colors.black)),
+              icon: Icon(Icons.favorite_outline, color: Colors.black)),
           IconButton(
               onPressed: () {
                 _pageController.animateToPage(2,
                     duration: Duration(milliseconds: 300),
                     curve: Curves.linear);
               },
-              icon: Icon(Icons.plus_one_rounded, color: Colors.black))
+              icon: Icon(Icons.travel_explore_outlined, color: Colors.black))
         ],
       ),
       backgroundColor: Colors.transparent,

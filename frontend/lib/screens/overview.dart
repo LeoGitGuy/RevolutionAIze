@@ -11,6 +11,8 @@ import 'package:http/http.dart' as http;
 import 'package:t4gopengov/GovData.dart'; //imports http protocol
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/overview_widget.dart';
+import '../models/location.dart';
+import '../services/location_handler.dart';
 
 class Overview extends StatefulWidget {
   const Overview({Key? key, required this.pgCont}) : super(key: key);
@@ -22,12 +24,17 @@ class Overview extends StatefulWidget {
 
 class _OverviewState extends State<Overview> {
   //ArticleService _vinService = ArticleService();
+  LocationService _locationService = LocationService();
 
   final List<OverviewWidget> _items = [
-    OverviewWidget("assets/desert.jpg", "Desert"),
-    OverviewWidget("assets/rainforest.jpg", "Rainforest"),
-    OverviewWidget("assets/munich.jpg", "Urban"),
-    OverviewWidget("assets/farm.jpg", "Farming"),
+    OverviewWidget(
+        "assets/desert.jpg", "Desert", Location("test", "111", "222", 2)),
+    OverviewWidget("assets/rainforest.jpg", "Rainforest",
+        Location("test", "111", "222", 2)),
+    OverviewWidget(
+        "assets/munich.jpg", "Urban", Location("test", "111", "222", 2)),
+    OverviewWidget(
+        "assets/farm.jpg", "Farming", Location("test", "111", "222", 2)),
   ];
 
   @override
@@ -40,12 +47,27 @@ class _OverviewState extends State<Overview> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
+                _locationService.myLocation = _items[index].location;
                 widget.pgCont();
               },
               child: Container(
+                child: Center(
+                  child: Text(_items[index].name,
+                      style: TextStyle(
+                          background: Paint()
+                            ..color = Colors.white
+                            ..strokeWidth = 38
+                            ..style = PaintingStyle.stroke,
+                          color: Colors.blue,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold)),
+                ),
+                height: 190.0,
+                width: MediaQuery.of(context).size.width - 100.0,
                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.blue,
                     image: DecorationImage(
-                        fit: BoxFit.cover,
                         image: AssetImage(_items[index].image))),
               ),
             );
