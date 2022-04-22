@@ -1,4 +1,6 @@
 // Import Stuf //
+// ignore_for_file: unnecessary_const
+
 import 'dart:convert';
 import 'dart:html';
 import 'dart:ui';
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'RevolutionAIze',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primarySwatch: Colors.red,
         // Define the default brightness and colors.
         brightness: Brightness.dark,
         primaryColor: Colors.lightBlue[800],
@@ -69,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
     OverlayEntry? entry;
     entry = OverlayEntry(builder: (context) {
       return AlertDialog(
-        contentPadding: EdgeInsets.only(top: 25),
+        contentPadding: const EdgeInsets.only(top: 25),
         backgroundColor: Colors.black,
         title: const Text(
           "Article Uploaded",
@@ -101,8 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
     _pages = [
       Overview(
         pgCont: () => _pageController.animateToPage(
-          1,
-          duration: Duration(milliseconds: 300),
+          2,
+          duration: const Duration(milliseconds: 300),
           curve: Curves.bounceInOut,
         ),
       ),
@@ -184,32 +187,35 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         leading: Image.asset("assets/favicon.png"),
         elevation: 3.0,
-        title: Text(
-          "Personal Reader",
-          style: TextStyle(fontSize: 20, color: Colors.black),
+        title: const Center(
+          child: const Text(
+            "RevolutionAIze",
+            style: const TextStyle(fontSize: 20, color: Colors.black),
+          ),
         ),
         actions: [
           IconButton(
               onPressed: () {
                 _pageController.animateToPage(0,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     curve: Curves.linear);
               },
-              icon: Icon(Icons.account_circle, color: Colors.black)),
+              icon: const Icon(Icons.apps_outlined, color: Colors.black)),
           IconButton(
               onPressed: () {
                 _pageController.animateToPage(1,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     curve: Curves.linear);
               },
-              icon: Icon(Icons.list, color: Colors.black)),
+              icon: const Icon(Icons.favorite_outline, color: Colors.black)),
           IconButton(
               onPressed: () {
                 _pageController.animateToPage(2,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     curve: Curves.linear);
               },
-              icon: Icon(Icons.plus_one_rounded, color: Colors.black))
+              icon: const Icon(Icons.travel_explore_outlined,
+                  color: Colors.black))
         ],
       ),
       backgroundColor: Colors.transparent,
@@ -221,7 +227,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         controller: _pageController,
         scrollDirection: Axis.vertical,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: _pages,
       ),
     );
