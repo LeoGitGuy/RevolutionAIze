@@ -27,14 +27,14 @@ class _OverviewState extends State<Overview> {
   LocationService _locationService = LocationService();
 
   final List<OverviewWidget> _items = [
-    OverviewWidget(
-        "assets/desert.jpg", "Desert", Location("test", "111", "222", 2)),
+    OverviewWidget("assets/desert.jpg", "Desert",
+        Location("test", "desert_lat", "desert_long", 2)),
     OverviewWidget("assets/rainforest.jpg", "Rainforest",
-        Location("test", "111", "222", 2)),
-    OverviewWidget(
-        "assets/munich.jpg", "Urban", Location("test", "111", "222", 2)),
-    OverviewWidget(
-        "assets/farm.jpg", "Farming", Location("test", "111", "222", 2)),
+        Location("test", "rainforest_lat", "rainforest_long", 2)),
+    OverviewWidget("assets/munich.jpg", "Urban",
+        Location("test", "urban_lat", "urban_long", 2)),
+    OverviewWidget("assets/farm.jpg", "Farming",
+        Location("test", "farm_lat", "farm_long", 2)),
   ];
 
   @override
