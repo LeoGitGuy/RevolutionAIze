@@ -29,29 +29,49 @@ class Search extends StatelessWidget {
             color: Colors.green,
             padding: const EdgeInsets.all(15),
           ),
+          const Divider(
+            height: 10.0,
+            thickness: 2.0,
+            endIndent: 30.0,
+            indent: 30.0,
+            color: Colors.grey,
+          ),
           //time scale selection
           Container(
-            child: const Text(
-              'time scale selection',
-              style: TextStyle(fontSize: 15),
+            child: Column(
+              children: [
+                const Text(
+                  'Select time scale in which you want to see environmental changes',
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                ElevatedButton(onPressed: () {}, child: const Text('run')),
+              ],
             ),
-            color: Colors.green.shade200,
-            padding: const EdgeInsets.all(15),
           ),
           // button
+          const Divider(
+            height: 10.0,
+            thickness: 2.0,
+            endIndent: 30.0,
+            indent: 30.0,
+            color: Colors.grey,
+          ),
           Container(
-            child: Column(children: [
-              const Text(
-                'here comes the button'
-              ),
-              ElevatedButton(
-              onPressed: () {}, 
-              child: const Text('run')
-              ),
-            ],
+            child: Column(
+              children: [
+                const Text('here comes the button'),
+                ElevatedButton(onPressed: () {}, child: const Text('run')),
+              ],
             ),
           ),
-         //image
+          const Divider(
+            height: 10.0,
+            thickness: 2.0,
+            endIndent: 30.0,
+            indent: 30.0,
+            color: Colors.grey,
+          ),
+          //image
           Container(
             child: const Text(
               'image',

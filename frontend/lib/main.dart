@@ -26,10 +26,11 @@ class MyApp extends StatelessWidget {
       title: 'RevolutionAIze',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
         // Define the default brightness and colors.
         brightness: Brightness.dark,
         primaryColor: Colors.lightBlue[800],
+        scaffoldBackgroundColor: Colors.white,
 
         // Define the default font family.
         fontFamily: 'Georgia',
