@@ -15,6 +15,9 @@ class EurosatRGBDataset(torch.utils.data.Dataset):
 
     def __init__(self, train, root_dir="RevolutionAIze/RevolutionAIze/model/data/rgb_images/", transform=None, seed=42):
         """
+        
+        
+        
         Args:
             train (bool): If true returns training set, else test
             root_dir (string): Directory with all the images.
