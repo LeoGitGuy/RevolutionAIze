@@ -17,28 +17,48 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        //coordinates
-        Container(
-          child: const Text('coordinates'
-              //style: TextStyle(fontSize: 15),
-              ),
-        ),
-        //time scale selection
-        Container(
-          child: const Text('Time scale selection'),
-        ),
-        // button
-        Container(
-          child: const Text('button'),
-        ),
-        //image
-        Container(
-          child: const Text('Image'),
-        ),
-        ProfileForm(pgCont: pgCont), //page counter
-      ],
+        body: Center(
+      child: Column(
+        children: [
+          //coordinates
+          Container(
+            child: const Text(
+              'coordinates',
+              style: TextStyle(fontSize: 15),
+            ),
+            color: Colors.green,
+            padding: const EdgeInsets.all(15),
+          ),
+          //time scale selection
+          Container(
+            child: const Text(
+              'time scale selection',
+              style: TextStyle(fontSize: 15),
+            ),
+            color: Colors.green.shade200,
+            padding: const EdgeInsets.all(15),
+          ),
+          // button
+          Container(
+            child: const Text(
+              'button',
+              style: TextStyle(fontSize: 15),
+            ),
+            color: Colors.green.shade400,
+            padding: const EdgeInsets.all(15),
+          ),
+          //image
+          Container(
+            child: const Text(
+              'image',
+              style: TextStyle(fontSize: 15),
+            ),
+            color: Colors.green.shade600,
+            padding: const EdgeInsets.all(15),
+          ),
+          //ProfileForm(pgCont: pgCont), //page counter
+        ],
+      ),
     ));
   }
 }
