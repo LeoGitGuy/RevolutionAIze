@@ -89,6 +89,6 @@ def get_area(lat, lon, n_tiles=20, year='2020'):
     return i1
 
 
-# 6 images: 3 of inage and 3 of classification
+# 6 images: 3 of image and 3 of classification
 # three years
 # clouds issue
