@@ -133,12 +133,3 @@ def classify_image(img, model):
     preds = model(xb)
     _, prediction = torch.max(preds.cpu().detach(), dim=1)
     return decode_target(int(prediction), text_labels=True)
-
-
-
-
-PATH = "/content/drive/MyDrive/Colab_Notebooks/RevolutionAIze/model1.pt"
-loaded_model = torch.load(PATH, map_location=get_device())
-img = Image.open("2750/PermanentCrop/PermanentCrop_615.jpg")
-pred = classify_image(img, loaded_model)
-print(pred)
