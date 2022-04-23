@@ -1,3 +1,17 @@
+# TUM.ai makeathon 2022, team RevolutionAIze
+
+
+**Download weights from this [link](https://drive.google.com/file/d/1WFgtt3RO0rFcO13y9CZapUjKwePP39al/view) (approx 300 mb) for usage and place to this folder**
+
+Example of the model usage without an app may be found in `map_retrieval_and_decomp.ipynb` notebook.
+
+**Original [repository](https://github.com/raoofnaushad/Land-Cover-Classification-using-Sentinel-2-Dataset) for the classification model.**
+
+
+
+***below is the original description...***
+
+
 # Land Cover and Land Use Classification using Sentinel-2 Satellite Imagery With Deep Learning
 ----------------------------------------------------------------------
 __This work has been published on <> [Sensors - MDPI](https://www.mdpi.com/1424-8220/21/23/8083)__

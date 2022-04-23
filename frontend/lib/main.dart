@@ -187,12 +187,19 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: Image.asset("assets/Vorld_Vision_Logo_updated.jpg"),
+        leading: Padding(
+          padding: const EdgeInsets.fromLTRB(16.0, 0, 0, 0),
+          child: Image.asset(
+            "assets/World_Vision_ohne_text.png",
+            width: 150,
+            height: 100,
+          ),
+        ),
         elevation: 3.0,
         title: const Center(
           child: const Text(
             "World Vision",
-            style: const TextStyle(fontSize: 20, color: Colors.black),
+            style: const TextStyle(fontSize: 40, color: Colors.black),
           ),
         ),
         actions: [
