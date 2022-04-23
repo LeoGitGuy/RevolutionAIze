@@ -19,17 +19,11 @@ loaded_model = torch.load(PATH, map_location=get_device())
 def classifier_forest(im, dummy=False):
     if not dummy:
         pred = classify_image(im, loaded_model)
-        # print(pred)
-        if pred == 'Forest':
-            return True
-        else:
-            return False
+        return pred=='Forest'
+
     else:
         arr = np.asarray(im)
-        if np.mean(arr) <= 50:
-            return True
-        else:
-            return False
+        return np.mean(arr) <= 50:
 
 
 def sliding_window(image, stride=64, imgSize=64, dummy_classification=False):
