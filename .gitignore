@@ -3,3 +3,4 @@ model/data
 venv/
 __pycache__
 gifs/
+model_flexible/model1.pt
