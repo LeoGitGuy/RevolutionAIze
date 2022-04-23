@@ -3,6 +3,7 @@
 
 import 'dart:convert'; // to convert Json file
 //import 'dart:html';
+//import 'dart:html';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -24,6 +25,9 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   final latitudeController = TextEditingController();
   final longitudeController = TextEditingController();
+  //items for DropdownMenu
+  String dropdownValue = 'Two Years';
+
   LocationService _locationService = LocationService();
   Widget _coordinatesInput() {
     latitudeController.text = _locationService.myLocation.latitude;
@@ -84,7 +88,35 @@ class _SearchState extends State<Search> {
                   'Select time scale in which you want to see environmental changes',
                   style: TextStyle(fontSize: 15, color: Colors.black),
                 ),
-                ElevatedButton(onPressed: () {}, child: const Text('run')),
+                Container(
+                  child: DropdownButton<String>(
+                    value: dropdownValue,
+                    icon: const Icon(Icons.arrow_drop_down_circle_outlined),
+                    elevation: 30,
+                    style: const TextStyle(color: Colors.blue),
+                    // underline: Container(
+                    //   height: 2,
+                    //   color: Colors.blue,
+                    // ),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        dropdownValue = newValue!;
+                      });
+                    },
+                    items: <String>[
+                      'Two Years',
+                      'Three Years',
+                      'Four Years',
+                      'Five Years'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                // ElevatedButton(onPressed: () {}, child: const Text('run')), //elevated button
               ],
             ),
           ),
@@ -99,7 +131,10 @@ class _SearchState extends State<Search> {
           Container(
             child: Column(
               children: [
-                const Text('here comes the button'),
+                const Text(
+                  'here comes the button',
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
                 ElevatedButton(onPressed: () {}, child: const Text('run')),
               ],
             ),
@@ -120,6 +155,7 @@ class _SearchState extends State<Search> {
             color: Colors.green.shade600,
             padding: const EdgeInsets.all(15),
           ),
+
           //ProfileForm(pgCont: pgCont), //page counter
         ],
       ),
