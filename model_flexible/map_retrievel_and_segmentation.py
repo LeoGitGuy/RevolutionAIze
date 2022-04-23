@@ -19,7 +19,7 @@ loaded_model = torch.load(PATH, map_location=get_device())
 def classifier_forest(im, dummy=False):
     if not dummy:
         pred = classify_image(im, loaded_model)
-        return pred=='Forest'
+        return pred == 'Forest'
 
     else:
         arr = np.asarray(im)
@@ -71,9 +71,9 @@ def get_image(lat, lon, dn=640, de=640, year='2020', size=223):
                      format='image/jpeg',
                      transparent=True
                      )
-    out = open('2750/image_tmp.jpg', 'wb')
+    out = open('./image_tmp.jpg', 'wb')
     out.write(img.read())
-    im = Image.open('2750/image_tmp.jpg')
+    im = Image.open('./image_tmp.jpg')
     return im
 
 
