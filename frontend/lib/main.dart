@@ -193,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 0, 0, 0),
           child: Image.asset(
-            "assets/revolutionAIze_Logo_1.png",
+            "assets/World_Vision_ohne_text.png",
             width: 150,
             height: 100,
           ),
@@ -201,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 3.0,
         title: const Center(
           child: const Text(
-            "RevolutionAIze",
+            "World Vision",
             style: const TextStyle(fontSize: 40, color: Colors.black),
           ),
         ),
