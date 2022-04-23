@@ -70,7 +70,7 @@ class LULC_Model(MulticlassClassifierBase):
 """
 
 def get_device():
-    print("Cuda available: ", torch.cuda.is_available())
+    #print("Cuda available: ", torch.cuda.is_available())
     if torch.cuda.is_available():
         return torch.device('cuda')
     else:

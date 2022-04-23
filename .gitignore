@@ -5,4 +5,5 @@ __pycache__
 gifs/
 model_flexible/model1.pt
 model_flexible/2750
-
+.DS_Store
+.DS_Store
