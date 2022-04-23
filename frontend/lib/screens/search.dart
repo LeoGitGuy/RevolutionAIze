@@ -269,7 +269,6 @@ class _SearchState extends State<Search> {
                           },
                           child: const Text('RUN')),
                     ),
-                    Expanded(child: TickBox)
                   ],
                 ),
               ),
