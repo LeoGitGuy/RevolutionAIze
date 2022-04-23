@@ -1,0 +1,3 @@
+Pillow
+fastapi
+uvicorn[standard]

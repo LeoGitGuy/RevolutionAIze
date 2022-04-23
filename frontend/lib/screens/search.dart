@@ -76,15 +76,17 @@ class _SearchState extends State<Search> {
     );
   }
 
-  var buttonPressed = false;
   Widget imageViewer() {
     if (loadPressed) {
       return Image(
-          image: NetworkImage(baseUrl +
+        image: AssetImage("assets/rainforest.jpg"),
+        height: 190,
+      );
+      /* image: NetworkImage(baseUrl +
               "?lat=" +
               _locationService.myLocation.latitude +
               "&lon=" +
-              _locationService.myLocation.longitude));
+              _locationService.myLocation.longitude)); */
     } else {
       return Text("4. Enjoy result image");
     }
@@ -197,7 +199,7 @@ class _SearchState extends State<Search> {
                       _locationService.myLocation = Location("test",
                           latitudeController.text, longitudeController.text, 3);
                       setState(() {
-                        buttonPressed = true;
+                        loadPressed = true;
                       });
                     },
                     child: const Text('run')),
