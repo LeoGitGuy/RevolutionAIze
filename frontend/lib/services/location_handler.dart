@@ -14,7 +14,7 @@ class LocationService {
   //initialize variables in here
   LocationService._internal() {
     //_myVIN = "";
-    _myLocation = Location("test", "111", "222", 2);
+    _myLocation = Location("", "", "", 1);
     //_newArticleUrl = "";
     myLocations = [
       Location("test1", "111", "222", 2),
@@ -24,7 +24,7 @@ class LocationService {
   }
 
   //String _myVIN = "";
-  Location _myLocation = Location("test", "111", "222", 2);
+  Location _myLocation = Location("", "", "", 1);
   //String _newArticleUrl = "";
   List<Location> myLocations = [
     Location("test1", "111", "222", 2),

@@ -187,38 +187,66 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 100,
+        leadingWidth: 166,
         backgroundColor: Colors.white,
-        leading: Image.asset("assets/favicon.png"),
+        leading: Padding(
+          padding: const EdgeInsets.fromLTRB(16.0, 0, 0, 0),
+          child: Image.asset(
+            "assets/revolutionAIze_Logo_1.png",
+            width: 150,
+            height: 100,
+          ),
+        ),
         elevation: 3.0,
         title: const Center(
           child: const Text(
             "RevolutionAIze",
-            style: const TextStyle(fontSize: 20, color: Colors.black),
+            style: const TextStyle(fontSize: 40, color: Colors.black),
           ),
         ),
         actions: [
-          IconButton(
-              onPressed: () {
-                _pageController.animateToPage(0,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.linear);
-              },
-              icon: const Icon(Icons.apps_outlined, color: Colors.black)),
-          IconButton(
-              onPressed: () {
-                _pageController.animateToPage(1,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.linear);
-              },
-              icon: const Icon(Icons.favorite_outline, color: Colors.black)),
-          IconButton(
-              onPressed: () {
-                _pageController.animateToPage(2,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.linear);
-              },
-              icon: const Icon(Icons.travel_explore_outlined,
-                  color: Colors.black))
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8.0, 0, 8, 0),
+            child: Transform.scale(
+              scale: 2,
+              child: IconButton(
+                  onPressed: () {
+                    _pageController.animateToPage(0,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.linear);
+                  },
+                  icon: const Icon(Icons.apps_outlined, color: Colors.black)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+            child: Transform.scale(
+              scale: 2,
+              child: IconButton(
+                  onPressed: () {
+                    _pageController.animateToPage(1,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.linear);
+                  },
+                  icon:
+                      const Icon(Icons.favorite_outline, color: Colors.black)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 16, 0),
+            child: Transform.scale(
+              scale: 2,
+              child: IconButton(
+                  onPressed: () {
+                    _pageController.animateToPage(2,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.linear);
+                  },
+                  icon: const Icon(Icons.travel_explore_outlined,
+                      color: Colors.black)),
+            ),
+          )
         ],
       ),
       backgroundColor: Colors.transparent,

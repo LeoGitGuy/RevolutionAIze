@@ -117,21 +117,23 @@ class _SavedPlacesState extends State<SavedPlaces> {
                   dense: true,
                   leading: Icon(Icons.explore_outlined),
                   title: Text(location.name),
-                  trailing: Column(
-                    children: [
-                      Text(
-                        location.latitude,
-                        style: new TextStyle(
-                            fontStyle: FontStyle.italic, color: Colors.black),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        location.longitude,
-                        style: new TextStyle(fontStyle: FontStyle.italic),
-                      ),
-                    ],
+                  trailing: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Text(
+                          location.latitude,
+                          style: new TextStyle(
+                              fontStyle: FontStyle.italic, color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          location.longitude,
+                          style: new TextStyle(fontStyle: FontStyle.italic),
+                        ),
+                      ],
+                    ),
                   ),
                   onTap: () {
                     _locationService.myLocation = location;

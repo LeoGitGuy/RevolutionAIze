@@ -13,6 +13,7 @@ import 'package:t4gopengov/GovData.dart'; //imports http protocol
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/location_handler.dart';
 import '../models/location.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 //Classes
 
@@ -102,6 +103,9 @@ class _SearchState extends State<Search> {
     }
   }
 
+  double _currentTimeValue = 2;
+  double _currentMapSizeValue = 1.5;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -171,7 +175,38 @@ class _SearchState extends State<Search> {
                           'Select Time Scale',
                         ),
                       ),
-                      Container(
+                      Expanded(
+                        child: Slider(
+                          value: _currentTimeValue,
+                          max: 10,
+                          divisions: 10,
+                          label: _currentTimeValue.round().toString(),
+                          onChanged: (double value) {
+                            setState(() {
+                              _currentTimeValue = value;
+                            });
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: const Text(
+                          'Select Map Size',
+                        ),
+                      ),
+                      Expanded(
+                        child: Slider(
+                          value: _currentMapSizeValue,
+                          max: 20,
+                          divisions: 5,
+                          label: _currentMapSizeValue.round().toString(),
+                          onChanged: (double value) {
+                            setState(() {
+                              _currentMapSizeValue = value;
+                            });
+                          },
+                        ),
+                      ),
+                      /* Container(
                         child: DropdownButton<String>(
                           value: dropdownValue,
                           icon:
@@ -199,7 +234,7 @@ class _SearchState extends State<Search> {
                             );
                           }).toList(),
                         ),
-                      ),
+                      ), */
                       Expanded(
                         child: Text(""),
                       )
@@ -218,15 +253,25 @@ class _SearchState extends State<Search> {
               ),
               Container(
                 alignment: Alignment.center,
-                child: ElevatedButton(
-                    onPressed: () {
-                      _locationService.myLocation = Location("test",
-                          latitudeController.text, longitudeController.text, 3);
-                      setState(() {
-                        loadPressed = true;
-                      });
-                    },
-                    child: const Text('RUN')),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                          onPressed: () {
+                            _locationService.myLocation = Location(
+                                "test",
+                                latitudeController.text,
+                                longitudeController.text,
+                                3);
+                            setState(() {
+                              loadPressed = true;
+                            });
+                          },
+                          child: const Text('RUN')),
+                    ),
+                    Expanded(child: TickBox)
+                  ],
+                ),
               ),
               const Divider(
                 height: 10.0,
