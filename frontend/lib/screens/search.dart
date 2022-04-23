@@ -3,6 +3,7 @@
 
 import 'dart:convert'; // to convert Json file
 //import 'dart:html';
+//import 'dart:html';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -25,6 +26,9 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   final latitudeController = TextEditingController();
   final longitudeController = TextEditingController();
+  //items for DropdownMenu
+  String dropdownValue = 'Two Years';
+
   LocationService _locationService = LocationService();
   static const baseUrl = "http://test.de";
   var loadPressed = false;
@@ -32,36 +36,43 @@ class _SearchState extends State<Search> {
   Widget _coordinatesInput() {
     latitudeController.text = _locationService.myLocation.latitude;
     longitudeController.text = _locationService.myLocation.longitude;
-    return Row(
-      children: [
-        const Expanded(
-          child: Text("Coordinates of target:"),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              controller: latitudeController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Enter Latitude here',
+    return Align(
+      alignment: Alignment.center, //this also doesn't work
+      child: Row(
+        mainAxisAlignment:
+            MainAxisAlignment.center, //Center Row contents horizontally,
+        crossAxisAlignment: CrossAxisAlignment
+            .center, //Center Row contents vertically, //why doesn't this work haha??
+        children: [
+          const Expanded(
+            child: Text("1. Type in coordinates of target:"),
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              child: TextField(
+                controller: latitudeController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter Latitude here',
+                ),
               ),
             ),
           ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              controller: longitudeController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Enter Longitude here',
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              child: TextField(
+                controller: longitudeController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter Longitude here',
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -77,7 +88,7 @@ class _SearchState extends State<Search> {
               "&lon=" +
               _locationService.myLocation.longitude)); */
     } else {
-      return Text("Press the button to see an image");
+      return Text("4. Enjoy result image");
     }
   }
 
@@ -86,7 +97,40 @@ class _SearchState extends State<Search> {
     return Scaffold(
         body: Center(
       child: Column(
+        //mainAxisAlignment: MainAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          //Headline
+          SizedBox(
+            height: 20,
+          ),
+          Align(
+            alignment: Alignment.center, //how to allign headline??
+            child: Row(
+              children: const [
+                Text(
+                  "Use Custom Search Engine",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Colors.black),
+                ),
+                SizedBox(width: 20),
+                Icon(Icons.image_search_outlined)
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Divider(
+            height: 20,
+            color: Colors.grey,
+            thickness: 3,
+            endIndent: 30.0,
+            indent: 30.0,
+          ),
           //coordinates
           _coordinatesInput(),
           const Divider(
@@ -98,13 +142,41 @@ class _SearchState extends State<Search> {
           ),
           //time scale selection
           Container(
-            child: Column(
+            alignment: Alignment.center,
+            child: Row(
               children: [
                 const Text(
-                  'Select time scale in which you want to see environmental changes',
-                  style: TextStyle(fontSize: 15, color: Colors.black),
+                  '2. Select time scale in which you want to see environmental changes of your location',
                 ),
-                ElevatedButton(onPressed: () {}, child: const Text('run')),
+                Container(
+                  child: DropdownButton<String>(
+                    value: dropdownValue,
+                    icon: const Icon(Icons.arrow_drop_down_circle_outlined),
+                    elevation: 30,
+                    style: const TextStyle(color: Colors.blue),
+                    // underline: Container(
+                    //   height: 2,
+                    //   color: Colors.blue,
+                    // ),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        dropdownValue = newValue!;
+                      });
+                    },
+                    items: <String>[
+                      'Two Years',
+                      'Three Years',
+                      'Four Years',
+                      'Five Years'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                // ElevatedButton(onPressed: () {}, child: const Text('run')), //elevated button
               ],
             ),
           ),
@@ -117,9 +189,11 @@ class _SearchState extends State<Search> {
             color: Colors.grey,
           ),
           Container(
-            child: Column(
+            child: Row(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              //mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('here comes the button'),
+                const Text('3. Press button to run model'),
                 ElevatedButton(
                     onPressed: () {
                       _locationService.myLocation = Location("test",
