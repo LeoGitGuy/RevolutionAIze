@@ -23,7 +23,7 @@ def classifier_forest(im, dummy=False):
 
     else:
         arr = np.asarray(im)
-        return np.mean(arr) <= 50:
+        return np.mean(arr) <= 50
 
 
 def sliding_window(image, stride=64, imgSize=64, dummy_classification=False):
@@ -39,11 +39,14 @@ def sliding_window(image, stride=64, imgSize=64, dummy_classification=False):
             draw = ImageDraw.Draw(image)
             is_forest = classifier_forest(im1, dummy=dummy_classification)
             if is_forest:
-                color = 'green'
+                pass
+                #color = 'green'
+                #color = (0, 255, 0, 20)
             else:
-                color = 'red'
-            draw.rectangle([(left, top), (right, bottom)],
-                           outline=color, width=2)
+                #color = 'red'
+                color = (255, 0, 0, 1)
+                draw.rectangle([(left, top), (right, bottom)],
+                               outline=color, fill=None, width=2)
             yield im1, is_forest
 
 
@@ -84,3 +87,8 @@ def get_area(lat, lon, n_tiles=20, year='2020'):
     i1 = get_image(lat, lon, year=year, dn=dn, de=de, size=size)
 
     return i1
+
+
+# 6 images: 3 of inage and 3 of classification
+# three years
+# clouds issue
