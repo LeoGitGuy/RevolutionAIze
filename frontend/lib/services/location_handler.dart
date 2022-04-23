@@ -17,9 +17,9 @@ class LocationService {
     _myLocation = Location("", "", "", 1);
     //_newArticleUrl = "";
     myLocations = [
-      Location("test1", "111", "222", 2),
-      Location("test2", "111", "222", 2),
-      Location("test3", "111", "222", 2),
+      Location("Sahara", "23.732895", "18.325380", 3),
+      Location("Munich", "48.14040777157138", "11.558811735271215", 2),
+      Location("Amazonas", "-3.4632860462165116", "-62.21886792806587", 2),
     ];
   }
 
@@ -27,9 +27,9 @@ class LocationService {
   Location _myLocation = Location("", "", "", 1);
   //String _newArticleUrl = "";
   List<Location> myLocations = [
-    Location("test1", "111", "222", 2),
-    Location("test2", "111", "222", 2),
-    Location("test3", "111", "222", 2),
+    Location("Sahara", "23.732895", "18.325380", 3),
+    Location("Munich", "48.14040777157138", "11.558811735271215", 2),
+    Location("Amazonas", "-3.4632860462165116", "-62.21886792806587", 2),
   ];
   final textController = TextEditingController();
   StreamController<List<Location>> locationController =
