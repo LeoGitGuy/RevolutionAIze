@@ -18,8 +18,23 @@ void main() {
   runApp(MyApp());
 }
 
+Map<int, Color> color = {
+  50: Color.fromRGBO(136, 14, 79, .1),
+  100: Color.fromRGBO(136, 14, 79, .2),
+  200: Color.fromRGBO(136, 14, 79, .3),
+  300: Color.fromRGBO(136, 14, 79, .4),
+  400: Color.fromRGBO(136, 14, 79, .5),
+  500: Color.fromRGBO(136, 14, 79, .6),
+  600: Color.fromRGBO(136, 14, 79, .7),
+  700: Color.fromRGBO(136, 14, 79, .8),
+  800: Color.fromRGBO(136, 14, 79, .9),
+  900: Color.fromARGB(255, 42, 136, 14),
+};
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
+  MaterialColor colorCustom = MaterialColor(0xFF3DA5A2, color);
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +42,11 @@ class MyApp extends StatelessWidget {
       title: 'RevolutionAIze',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: colorCustom,
         // Define the default brightness and colors.
         brightness: Brightness.dark,
-        primaryColor: Colors.lightBlue[800],
-        scaffoldBackgroundColor: Colors.blueGrey,
+        primaryColor: Color.fromARGB(255, 61, 165, 162),
+        scaffoldBackgroundColor: Color.fromARGB(255, 2, 61, 65), // Color Appbar
 
         // Define the default font family.
         fontFamily: 'Georgia',
@@ -186,16 +201,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 20, 50, 50), // Color Scaffold
         leading: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 0, 0, 0),
           child: Image.asset(
-            "assets/World_Vision_ohne_text.png",
+            "assets/World_Vision_ohne_text_richtiger_hintergrund.png",
             width: 150,
             height: 100,
           ),
         ),
-        elevation: 3.0,
+        elevation: 10.0,
         title: const Center(
           child: const Text(
             "World Vision",

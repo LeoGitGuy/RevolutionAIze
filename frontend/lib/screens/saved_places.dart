@@ -70,7 +70,7 @@ class _SavedPlacesState extends State<SavedPlaces> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Colors.red,
+                color: Color.fromARGB(255, 198, 27, 0),
               ),
               padding: EdgeInsets.only(left: 20.0),
               child: Row(
@@ -88,7 +88,7 @@ class _SavedPlacesState extends State<SavedPlaces> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Colors.red,
+                color: Color.fromARGB(255, 198, 27, 0),
               ),
               padding: EdgeInsets.only(right: 20.0),
               child: Row(
@@ -106,7 +106,8 @@ class _SavedPlacesState extends State<SavedPlaces> {
           },
           child: Card(
             elevation: 0,
-            color: Colors.lightBlue,
+            //color: Color.fromARGB(255, 252, 255, 87),
+            color: Color.fromARGB(255, 61, 165, 162),
             shape: RoundedRectangleBorder(
               side: new BorderSide(color: Colors.black, width: 2.0),
               borderRadius: BorderRadius.circular(15),
@@ -152,7 +153,7 @@ class _SavedPlacesState extends State<SavedPlaces> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.blueGrey,
+        color: Color.fromARGB(255, 2, 61, 65),
         //color: Colors.grey,
         padding: const EdgeInsets.fromLTRB(50, 30, 50, 10),
         alignment: Alignment.center,

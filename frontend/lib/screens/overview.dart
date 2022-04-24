@@ -51,24 +51,38 @@ class _OverviewState extends State<Overview> {
                 widget.pgCont();
               },
               child: Container(
+                margin:
+                    EdgeInsets.only(left: 70, top: 70, right: 70, bottom: 70),
                 child: Center(
                   child: Text(_items[index].name,
+                      //buttons
                       style: TextStyle(
-                          background: Paint()
-                            ..color = Colors.white
-                            ..strokeWidth = 38
-                            ..style = PaintingStyle.stroke,
-                          color: Colors.blue,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold)),
+                        background: Paint()
+                          ..color = Color.fromARGB(255, 61, 165, 162)
+                          ..strokeWidth = 38
+                          ..style = PaintingStyle.stroke,
+                        color: Colors.white,
+                        fontSize: 30,
+                        //fontWeight: FontWeight.bold
+                      )),
                 ),
-                height: 190.0,
-                width: MediaQuery.of(context).size.width - 100.0,
+                height: 190.0, //doesn't change anything
+                //width: double.infinity,
+                //width: MediaQuery.of(context).size.width - 100.0,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.blue,
-                    image: DecorationImage(
-                        image: AssetImage(_items[index].image))),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.blueGrey, //grayblue
+                  image:
+                      DecorationImage(image: AssetImage(_items[index].image)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(5, 7), // changes position of shadow
+                    ),
+                  ],
+                ),
               ),
             );
           }),

@@ -118,9 +118,9 @@ class _SearchState extends State<Search> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //Headline
-              SizedBox(
-                height: 20,
-              ),
+              // SizedBox(
+              //   height: 0,
+              // ),
               Padding(
                 padding: const EdgeInsets.all(30.0),
                 child: Align(
@@ -142,7 +142,7 @@ class _SearchState extends State<Search> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 0,
               ),
               Divider(
                 height: 20,
@@ -172,7 +172,7 @@ class _SearchState extends State<Search> {
                     children: [
                       Expanded(
                         child: const Text(
-                          'Select Time Scale',
+                          'Select Time Scale [years]',
                         ),
                       ),
                       Expanded(
@@ -190,7 +190,7 @@ class _SearchState extends State<Search> {
                       ),
                       Expanded(
                         child: const Text(
-                          'Select Map Size',
+                          'Select Map Size [km]',
                         ),
                       ),
                       Expanded(
