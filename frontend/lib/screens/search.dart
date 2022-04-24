@@ -36,6 +36,7 @@ class NewItem {
 class _SearchState extends State<Search> {
   final latitudeController = TextEditingController();
   final longitudeController = TextEditingController();
+  final nameController = TextEditingController();
   //items for DropdownMenu
   String dropdownValue = 'Two Years';
 
@@ -105,6 +106,43 @@ class _SearchState extends State<Search> {
 
   double _currentTimeValue = 2;
   double _currentMapSizeValue = 1.5;
+  bool savePlace = false;
+  void show() {
+    //final context = navigatorKey.currentState!.overlay!.context;
+    OverlayEntry? entry;
+    entry = OverlayEntry(builder: (context) {
+      return AlertDialog(
+        contentPadding: const EdgeInsets.only(top: 25),
+        backgroundColor: Colors.black,
+        title: const Text(
+          "Enter Location Name",
+          style: TextStyle(color: Colors.blue),
+        ),
+        content: TextField(
+            controller: nameController,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Enter Latitude here',
+            )),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              _locationService.myLocations.add(Location(
+                  nameController.text,
+                  latitudeController.text,
+                  longitudeController.text,
+                  _currentTimeValue.toInt()));
+              entry!.remove();
+            },
+            child: const Text(
+              "O.K.",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -206,7 +244,18 @@ class _SearchState extends State<Search> {
                           },
                         ),
                       ),
-                      /* Container(
+                      Expanded(
+                        child: Checkbox(
+                          checkColor: Colors.white,
+                          value: savePlace,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              savePlace = value!;
+                              //show();
+                            });
+                          },
+                        ),
+                        /* Container(
                         child: DropdownButton<String>(
                           value: dropdownValue,
                           icon:
@@ -235,8 +284,6 @@ class _SearchState extends State<Search> {
                           }).toList(),
                         ),
                       ), */
-                      Expanded(
-                        child: Text(""),
                       )
                       // ElevatedButton(onPressed: () {}, child: const Text('run')), //elevated button
                     ],
@@ -281,6 +328,7 @@ class _SearchState extends State<Search> {
                 color: Colors.grey,
               ),
               //image
+
               Container(child: imageViewer()),
               //ProfileForm(pgCont: pgCont), //page counter
             ],
