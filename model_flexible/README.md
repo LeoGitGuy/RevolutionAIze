@@ -5,7 +5,7 @@
 
 Example of the model usage without an app may be found in `map_retrieval_and_decomp.ipynb` notebook.
 
-**Original [repository](https://github.com/raoofnaushad/Land-Cover-Classification-using-Sentinel-2-Dataset) for the classification model.**
+**Original [repository](https://github.com/raoofnaushad/Land-Cover-Classification-using-Sentinel-2-Dataset) for the classification model, the link to the training/validation set is also there.**
 
 
 
