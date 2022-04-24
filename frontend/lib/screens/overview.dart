@@ -30,7 +30,7 @@ class _OverviewState extends State<Overview> {
     OverviewWidget("assets/desert.jpg", "Desert",
         Location("test", "desert_lat", "desert_long", 2)),
     OverviewWidget("assets/rainforest.jpg", "Rainforest",
-        Location("test", "rainforest_lat", "rainforest_long", 2)),
+        Location("test", "-3.4632860462165116", "-62.21886792806587", 2)),
     OverviewWidget("assets/munich.jpg", "Urban",
         Location("test", "urban_lat", "urban_long", 2)),
     OverviewWidget("assets/farm.jpg", "Farming",

@@ -201,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 20, 50, 50), // Color Scaffold
+        backgroundColor: Color.fromARGB(255, 61, 165, 162), // Color Scaffold
         leading: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 0, 0, 0),
           child: Image.asset(

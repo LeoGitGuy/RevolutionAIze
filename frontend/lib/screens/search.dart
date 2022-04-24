@@ -90,17 +90,17 @@ class _SearchState extends State<Search> {
   Widget imageViewer() {
     if (loadPressed) {
       return Image(
-          height: 400,
+          height: 700,
           /* image: AssetImage("assets/rainforest.jpg"),
         height: 400,
       ); */
           image: NetworkImage(baseUrl +
               "?lat=" +
-              _locationService.myLocation.latitude +
+              savePlace.toString() +
               "&lon=" +
               _locationService.myLocation.longitude));
     } else {
-      return Text("Press the Red Button!");
+      return Text("");
     }
   }
 
@@ -245,6 +245,11 @@ class _SearchState extends State<Search> {
                         ),
                       ),
                       Expanded(
+                        child: const Text(
+                          'AI Details',
+                        ),
+                      ),
+                      Expanded(
                         child: Checkbox(
                           checkColor: Colors.white,
                           value: savePlace,
@@ -298,26 +303,29 @@ class _SearchState extends State<Search> {
                 indent: 30.0,
                 color: Colors.grey,
               ),
-              Container(
-                alignment: Alignment.center,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                          onPressed: () {
-                            _locationService.myLocation = Location(
-                                "test",
-                                latitudeController.text,
-                                longitudeController.text,
-                                3);
-                            setState(() {
-                              loadPressed = true;
-                            });
-                          },
-                          child: const Text('RUN')),
-                    ),
-                    //Expanded(child: TickBox)
-                  ],
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              _locationService.myLocation = Location(
+                                  "test",
+                                  latitudeController.text,
+                                  longitudeController.text,
+                                  3);
+                              setState(() {
+                                loadPressed = true;
+                              });
+                            },
+                            child: const Text('RUN')),
+                      ),
+                      //Expanded(child: TickBox)
+                    ],
+                  ),
                 ),
               ),
               const Divider(
